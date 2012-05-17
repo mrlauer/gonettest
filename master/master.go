@@ -1,13 +1,17 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"netchan"
 )
 
 func main() {
-	imp, err := netchan.Import("tcp", "localhost:8001")
+	host := flag.String("host", "localhost:8001", "remote host")
+	flag.Parse()
+	fmt.Printf("attaching to %s\n", host)
+	imp, err := netchan.Import("tcp", *host)
 	if err != nil {
 		log.Fatal(err)
 	}
