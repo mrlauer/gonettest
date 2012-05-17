@@ -23,7 +23,7 @@ func main() {
 		allDone <- true
 	}()
 	fmt.Printf("listening on localhost:8001\n")
-	listener, err := net.Listen("tcp", "localhost:8001")
+	listener, err := net.Listen("tcp", ":8001")
 	if err != nil {
 		log.Fatal(err)
 	}
